@@ -2,7 +2,7 @@ import React from 'react';
 
 const styles = {
 	container: {
-		marginTop: '15%'
+		paddingTop: '8%'
 	}
 };
 

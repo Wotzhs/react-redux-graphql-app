@@ -1,9 +1,29 @@
 import React from 'react';
+import Footer from './Footer';
+
+const styles = {
+	container: {
+		marginTop: '15%'
+	}
+};
 
 class NotFound extends React.Component{
 	render(){
 		return(
-			<h1>Not Found</h1>
+			<div>
+				<div style={styles.container}>
+					<div className="row">
+						<div className="two columns">&ensp;</div>
+						<div className="eight columns">
+							<h3>Oops it seems that you have entered or followed an invalid link</h3>
+							<p>Check the address for typing errors such as <b>ww.</b>example.com instead of <b>www.</b>example.com.</p>
+							<p>Or click on this <a href="/">link</a> to go back to home page.</p>	
+						</div>
+						<div className="two columns"></div>	
+					</div>	
+				</div>
+				<Footer />
+			</div>
 		)
 	}
 }
