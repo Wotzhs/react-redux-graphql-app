@@ -3,7 +3,7 @@ import Footer from './Footer';
 
 const styles = {
 	container: {
-		marginTop: '15%'
+		paddingTop: '6%'
 	}
 };
 
@@ -22,7 +22,6 @@ class NotFound extends React.Component{
 						<div className="two columns"></div>	
 					</div>	
 				</div>
-				<Footer />
 			</div>
 		)
 	}
