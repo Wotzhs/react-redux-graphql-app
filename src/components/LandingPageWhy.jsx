@@ -3,14 +3,18 @@ import React from 'react';
 const styles = {
 	centered: {
 		textAlign: 'justify'
+	},
+	blockHeight: {
+		paddingTop: '15vh',
+		height: '80vh'
 	}
 }
 
 class LandingPageWhy extends React.Component{
 	render(){
 		return(
-			<div>
-				<h1>Why Work Contact</h1>
+			<div style={ styles.blockHeight }>
+				<h1>Why Disconeq</h1>
 				<br/>
 				<div className="row">
 					<div className="one column">&ensp;</div>
