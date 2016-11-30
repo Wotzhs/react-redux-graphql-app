@@ -16,7 +16,7 @@ class Header extends React.Component{
 	render(){
 		return(
 			<h1 style={ styles.header }>
-				<Link to={'/'} style={ styles.noUnderline }>DisconeQ</Link>
+				<Link to={'/'} style={ styles.noUnderline }>Disconeq</Link>
 			</h1>
 		)
 	}

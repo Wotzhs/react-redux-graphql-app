@@ -2,23 +2,37 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const styles = {
-	centered: {
-		textAlign: 'center'
+	centerAlign: {
+		textAlign: 'center',
+		color: '#f5f5f5'
 	},
-	blockHeight: {
-		paddingTop: '15vh',
-		height: '80vh'
+	height80vh: {
+		height: '80vh',
+		marginLeft: -25
+	},
+	backgroundImage: {
+		height: '70vh',
+		backgroundImage: "url('/landing.jpg')",
+		position: 'fixed',
+		backgroundSize: 'cover',
+		zIndex: -1
+	},
+	paddingTop20vh: {
+		paddingTop: '20vh'
 	}
 }
 
 class LandingPageIntro extends React.Component{
 	render(){
 		return(
-			<div style={ styles.blockHeight }>
-				<h3 style={ styles.centered }>Just like Facebook for your friend, LinkedIn for your colleague</h3>
-				<h5 style={ styles.centered }>Now your phonebook is no longer cluttered with work contacts</h5>
-				<div style={ styles.centered }>
-					<Link to={'/signup'} className="button button-primary">Get Started</Link>
+			<div style={ styles.height80vh }>
+				<div className="u-full-width" style={ styles.backgroundImage }></div>
+				<div style={ styles.paddingTop20vh } >
+					<h3 style={ styles.centerAlign }>Just like Facebook for your friends, LinkedIn for your colleagues</h3>
+					<h5 style={ styles.centerAlign }>Now you do not have to clutter your phonebook with work contacts</h5>
+					<div style={ styles.centerAlign }>
+						<Link to={'/signup'} style={ styles.bringToFront } className="button button-primary">Get Started</Link>
+					</div>
 				</div>
 			</div>
 		)
