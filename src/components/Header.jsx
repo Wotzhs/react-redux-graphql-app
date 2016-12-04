@@ -23,7 +23,7 @@ class Header extends React.Component{
 					<h1 className="u-pull-left">
 						<Link to={'/'} style={ styles.noUnderline }>Disconeq</Link>
 					</h1>
-					<Link to={'/'} className="button u-pull-right" style={ styles.loginButton } >Sign In</Link>
+					<Link to={'/signin'} className="button u-pull-right" style={ styles.loginButton } >Sign In</Link>
 			</div>
 		)
 	}

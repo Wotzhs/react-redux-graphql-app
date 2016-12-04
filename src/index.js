@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import LandingPage from './components/LandingPage';
 import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 import ContactContainer from './components/ContactContainer';
 import AddContact from './components/AddContact';
 import NotFound from './components/NotFound';
@@ -44,6 +45,7 @@ const Root = () => {
 			<Route path="/" component={BaseLayout}>
 				<IndexRoute component={LandingPage} />
 				<Route path="signup" component={SignUp} />
+				<Route path="signin" component={SignIn} />
 				<Route path="home">
 					<IndexRoute component={ContactContainer} />
 					<Route path="add" component={AddContact} />
