@@ -14,7 +14,7 @@ const styles = {
 		marginLeft: -25,
 		marginRight: -25,
 		paddingLeft: 25,
-		zIndex: 10
+		paddingRight: 25
 	}
 }
 
@@ -29,17 +29,17 @@ class LandingPageWhy extends React.Component{
 					<div className="ten columns">
 						<div className="one-third column" style={ styles.justified } >
 							<h1><Icon name="floppy-o" size="3x" /></h1>
-							<h4>Saved Forever</h4>
+							<h5>Saved Forever</h5>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iste impedit labore eum perferendis, maxime id architecto numquam voluptate earum, ullam unde dolor aliquid non ea laborum sapiente, deleniti eaque!</p>
 						</div>
 						<div className="one-third column" style={ styles.justified } >
 							<h1><Icon name="check-square-o" size="3x" /></h1>
-							<h4>Better Organization</h4>
+							<h5>Better Organization</h5>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum fugit ratione temporibus sit sapiente voluptas, quod esse officiis unde reiciendis nesciunt ipsa, nobis ipsam nemo aspernatur cumque natus voluptatibus at.</p>
 						</div>
 						<div className="one-third column" style={ styles.justified } >
 							<h1><Icon name="exchange" size="3x" /></h1>
-							<h4>Seamless Integration</h4>
+							<h5>Seamless Integration</h5>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque provident harum officiis eos sapiente culpa cumque vitae cum sequi fugiat eaque excepturi, voluptatum laboriosam, at ullam nam sit, earum deleniti.</p>
 						</div>
 					</div>

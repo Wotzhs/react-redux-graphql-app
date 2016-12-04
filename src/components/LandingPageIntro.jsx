@@ -7,9 +7,9 @@ const styles = {
 		color: '#f5f5f5'
 	},
 	height80vh: {
-		height: '80vh',
 		minHeight: 468.8,
-		marginLeft: -25
+		marginLeft: -25,
+		marginRight: -25
 	},
 	backgroundImage: {
 		height: '70vh',
