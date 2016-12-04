@@ -32,6 +32,7 @@ class LandingPageIntro extends React.Component{
 					<h5 style={ styles.centerAlign }>Now you do not have to clutter your phonebook with work contacts</h5>
 					<div style={ styles.centerAlign }>
 						<Link to={'/signup'} style={ styles.bringToFront } className="button button-primary">Get Started</Link>
+						<input type="hidden" value="photocredit:https://scstylecaster.files.wordpress.com/2014/01/cell-phone-use1.jpg"/>
 					</div>
 				</div>
 			</div>
