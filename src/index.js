@@ -18,7 +18,8 @@ import NotFound from './components/NotFound';
 const styles = {
 	contentDefault: {
 		minHeight: '75vh',
-		marginLeft: 25
+		marginLeft: 25,
+		marginRight: 25
 	},
 	thin: {
 		marginTop: 0,

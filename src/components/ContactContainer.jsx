@@ -9,7 +9,8 @@ const styles = {
 		backgroundColor: 'white'
 	},
 	leftPadding25px: {
-		paddingLeft: '1vw'
+		paddingLeft: '1vw',
+		paddingRight: '1vw'
 	}
 }
 
@@ -21,7 +22,7 @@ class ContactContainer extends React.Component{
 					<ContactSearch />
 					<ContactList />
 				</div>
-				<div className="seven columns">
+				<div className="eight columns">
 					<ContactDetails />
 				</div>
 			</div>

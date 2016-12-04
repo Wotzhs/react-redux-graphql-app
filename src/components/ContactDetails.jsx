@@ -22,13 +22,7 @@ class ContactDetails extends React.Component{
 		return(
 			<div style={ styles.bordered } >
 				<div className="row">
-					<div className="six columns">
-						<h3>Wong Tze Hsiung</h3>
-					</div>
-					<div className="six columns">
-						<button className="button" style={ styles.button }><Icon name="pencil"/> Edit</button>
-						<button className="button" style={ styles.button }><Icon name="trash"/> Delete</button>
-					</div>
+					<h3>Wong Tze Hsiung</h3>	
 				</div>
 				
 				<div className="row">
@@ -52,6 +46,11 @@ class ContactDetails extends React.Component{
 						<label>Comment</label>
 						<p></p>
 					</div>
+				</div>
+				<br/>
+				<div className="row">
+					<button className="button" style={ styles.button }><Icon name="pencil"/> Edit</button>
+					<button className="button" style={ styles.button }><Icon name="trash"/> Delete</button>
 				</div>
 				
 			</div>
