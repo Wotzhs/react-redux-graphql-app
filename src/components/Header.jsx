@@ -4,10 +4,14 @@ import { Link } from 'react-router';
 const styles = {
 	header: {
 		paddingTop: 25,
-		paddingLeft: 25
+		paddingLeft: '2vw'
 	},
 	noUnderline: {
 		textDecoration: 'none'
+	},
+	loginButton: {
+		marginRight: '2vw',
+		marginTop: 10
 	}
 }
 
@@ -15,9 +19,12 @@ const styles = {
 class Header extends React.Component{
 	render(){
 		return(
-			<h1 style={ styles.header }>
-				<Link to={'/'} style={ styles.noUnderline }>Disconeq</Link>
-			</h1>
+			<div className="row" style={ styles.header }>
+					<h1 className="u-pull-left">
+						<Link to={'/'} style={ styles.noUnderline }>Disconeq</Link>
+					</h1>
+					<Link to={'/'} className="button u-pull-right" style={ styles.loginButton } >Sign In</Link>
+			</div>
 		)
 	}
 }
