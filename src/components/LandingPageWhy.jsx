@@ -12,6 +12,7 @@ const styles = {
 		paddingTop: '15vh',
 		backgroundColor: 'white',
 		marginLeft: -25,
+		marginRight: -25,
 		paddingLeft: 25,
 		zIndex: 10
 	}
