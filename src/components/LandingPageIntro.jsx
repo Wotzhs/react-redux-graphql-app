@@ -8,6 +8,7 @@ const styles = {
 	},
 	height80vh: {
 		height: '80vh',
+		minHeight: 468.8,
 		marginLeft: -25
 	},
 	backgroundImage: {
@@ -18,7 +19,7 @@ const styles = {
 		zIndex: -1
 	},
 	paddingTop20vh: {
-		paddingTop: '20vh'
+		paddingTop: '10vw'
 	}
 }
 
