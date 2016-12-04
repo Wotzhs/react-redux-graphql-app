@@ -1,33 +1,52 @@
 import React from 'react';
+import { Icon } from 'react-fa';
+
+const styles = {
+	bordered: {
+		border: '1px solid black',
+		padding: 15,
+		backgroundColor: 'white',
+		minHeight: 380
+	},
+	leftPadding: {
+		marginLeft: '1vw'
+	},
+	button: {
+		width: '49%',
+		marginRight: '1%'
+	}
+}
 
 class ContactDetails extends React.Component{
 	render(){
 		return(
-			<div>
-				<div>
-					<label>Avatar</label>
-					<p>This is the Contact Avatar</p>
+			<div style={ styles.bordered } >
+				<div className="row">
+					<div className="six columns">
+						<h3>Wong Tze Hsiung</h3>
+					</div>
+					<div className="six columns">
+						<button className="button" style={ styles.button }><Icon name="pencil"/> Edit</button>
+						<button className="button" style={ styles.button }><Icon name="trash"/> Delete</button>
+					</div>
 				</div>
-				<div>
-					<label>Name</label>
-					<p>This is the Contact Name</p>
+				
+				<div className="row">
+					<div className="four columns" style={ styles.leftPadding }>
+						<img src="/default_avatar.jpg" alt="" className="u-max-full-width"/>
+					</div>
+					<div className="six columns">
+						<label>Phone</label>
+						<p>016-9983022</p>
+						<label>Email</label>
+						<a href="mailto:wotzhs@gmail.com" target="_top">wotzhs@gmail.com</a>
+						<label>Organization</label>
+						<p>Pixl8 Interactive</p>
+						<label>Comment</label>
+						<p></p>
+					</div>
 				</div>
-				<div>
-					<label>Phone</label>
-					<p>This is the Contact Phone</p>
-				</div>
-				<div>
-					<label>Email</label>
-					<p>This is the Contact Email</p>
-				</div>
-				<div>
-					<label>Organization</label>
-					<p>This is the Contact Organzation</p>
-				</div>
-				<div>
-					<label>Comment</label>
-					<p>This is the Contact Comment</p>
-				</div>
+				
 			</div>
 		)
 	}

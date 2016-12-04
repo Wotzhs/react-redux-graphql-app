@@ -3,14 +3,27 @@ import ContactSearch from './ContactSearch';
 import ContactList from './ContactList';
 import ContactDetails from './ContactDetails';
 
+const styles = {
+	bordered: {
+		border: '1px black solid',
+		backgroundColor: 'white'
+	},
+	leftPadding25px: {
+		paddingLeft: '1vw'
+	}
+}
+
 class ContactContainer extends React.Component{
 	render(){
 		return(
-			<div>
-				<h1>This is the container for contact container</h1>
-				<ContactSearch />
-				<ContactList />
-				<ContactDetails />
+			<div className="row" style={ styles.leftPadding25px }>
+				<div className="four columns" style={ styles.bordered }>
+					<ContactSearch />
+					<ContactList />
+				</div>
+				<div className="seven columns">
+					<ContactDetails />
+				</div>
 			</div>
 		)
 	}
