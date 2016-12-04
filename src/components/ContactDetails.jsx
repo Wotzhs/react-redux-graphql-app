@@ -8,12 +8,12 @@ const styles = {
 		backgroundColor: 'white',
 		minHeight: 380
 	},
-	leftPadding: {
-		marginLeft: '1vw'
-	},
 	button: {
 		width: '49%',
 		marginRight: '1%'
+	},
+	minHeight240px: {
+		minHeight: 240
 	}
 }
 
@@ -25,11 +25,11 @@ class ContactDetails extends React.Component{
 					<h3>Wong Tze Hsiung</h3>	
 				</div>
 				
-				<div className="row">
-					<div className="four columns" style={ styles.leftPadding }>
+				<div className="row" style={ styles.minHeight240px }>
+					<div className="four columns">
 						<img src="/default_avatar.jpg" alt="" className="u-max-full-width"/>
 					</div>
-					<div className="six columns">
+					<div className="eight columns">
 						<div className="row">
 							<div className="six columns">
 								<label>Phone</label>
