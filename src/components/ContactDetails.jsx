@@ -4,7 +4,7 @@ import { Icon } from 'react-fa';
 const styles = {
 	bordered: {
 		border: '1px solid black',
-		padding: 15,
+		padding: '25px 15px 15px 15px',
 		backgroundColor: 'white',
 		minHeight: 380
 	},
@@ -36,10 +36,17 @@ class ContactDetails extends React.Component{
 						<img src="/default_avatar.jpg" alt="" className="u-max-full-width"/>
 					</div>
 					<div className="six columns">
-						<label>Phone</label>
-						<p>016-9983022</p>
-						<label>Email</label>
-						<a href="mailto:wotzhs@gmail.com" target="_top">wotzhs@gmail.com</a>
+						<div className="row">
+							<div className="six columns">
+								<label>Phone</label>
+								<p>016-9983022</p>
+							</div>
+							<div className="six columns">
+								<label>Email</label>
+								<a href="mailto:wotzhs@gmail.com" target="_top">wotzhs@gmail.com</a>
+							</div>
+						</div>
+						
 						<label>Organization</label>
 						<p>Pixl8 Interactive</p>
 						<label>Comment</label>
