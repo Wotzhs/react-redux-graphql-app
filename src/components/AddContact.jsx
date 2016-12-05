@@ -28,7 +28,12 @@ class AddContact extends React.Component{
 				<div className="row">
 					<div className="two columns">&ensp;</div>
 					<div className="two columns" style={ styles.centered } >
-						<img className="u-max-full-width" src="/default_avatar.jpg" alt="default avatar" style={ styles.clickableAvatar } />
+						<img 
+							className="u-max-full-width" 
+							src="/default_avatar.jpg" 
+							alt="default avatar" 
+							style={ styles.clickableAvatar } 
+						/>
 					</div>
 					<div className="six columns">
 						<input className="u-full-width" type="text" placeholder="Name"/>

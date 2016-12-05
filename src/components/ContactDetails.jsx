@@ -8,9 +8,14 @@ const styles = {
 		backgroundColor: 'white',
 		minHeight: 380
 	},
-	button: {
+	editButton: {
 		width: '49%',
 		marginRight: '1%'
+	},
+	deleteButton: {
+		width: '49%',
+		marginRight: '1%',
+		color: 'red'
 	},
 	minHeight240px: {
 		minHeight: 240
@@ -49,8 +54,8 @@ class ContactDetails extends React.Component{
 				</div>
 				<br/>
 				<div className="row">
-					<button className="button" style={ styles.button }><Icon name="pencil"/> Edit</button>
-					<button className="button" style={ styles.button }><Icon name="trash"/> Delete</button>
+					<button className="button" style={ styles.editButton }><Icon name="pencil"/> Edit</button>
+					<button className="button" style={ styles.deleteButton }><Icon name="trash"/> Delete</button>
 				</div>
 				
 			</div>

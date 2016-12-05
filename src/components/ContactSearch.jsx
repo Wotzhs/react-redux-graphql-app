@@ -3,14 +3,15 @@ import { Icon } from 'react-fa';
 
 const styles = {
 	padding15px: {
-		padding: 15,
+		padding: '15px 15px 0px 15px',
 		fontFamily: 'fontAwesome'
 	},
 	show: {
 		paddingRight: 10,
 		marginTop: -42,
 		position: 'relative',
-		cursor: 'pointer'
+		cursor: 'pointer',
+		color: '#33C3F0'
 	},
 	hide: {
 		display: 'none'
