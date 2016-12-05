@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 
 const styles = {
 	container: {
@@ -11,6 +12,7 @@ class SignUp extends React.Component{
 
 	createAccount(event){
 		event.preventDefault();
+		browserHistory.push('/home');
 	}
 
 	render(){
