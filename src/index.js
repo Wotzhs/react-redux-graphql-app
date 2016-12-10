@@ -34,7 +34,7 @@ class BaseLayout extends React.Component{
 				<Header />
 				<div style={styles.contentDefault}>{this.props.children}</div>
 				<hr style={styles.thin}/>
-				<Footer className="footer" />
+				<Footer />
 			</div>
 		)
 	}
