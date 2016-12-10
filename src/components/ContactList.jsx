@@ -28,9 +28,15 @@ const styles = {
 }
 
 class ContactList extends React.Component{
+
+	showContactDetails() {
+		this.props.toggleDisplay();
+		this.props.contactDetails();
+	}
+
 	render(){
 		return(
-			<div className="row" style={styles.padding15px}>
+			<div className="row" style={styles.padding15px} onClick={ (e) => this.showContactDetails(e)}>
 				<div style={ styles.contactPhoto }>
 					<img src="/default_avatar.jpg" alt="" className="u-max-full-width"/>
 				</div>

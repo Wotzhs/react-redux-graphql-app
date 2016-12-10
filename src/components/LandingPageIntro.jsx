@@ -19,7 +19,7 @@ const styles = {
 		zIndex: -1
 	},
 	paddingTop20vh: {
-		paddingTop: '10vw'
+		paddingTop: '15vh'
 	}
 }
 

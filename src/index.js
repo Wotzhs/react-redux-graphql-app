@@ -12,7 +12,6 @@ import LandingPage from './components/LandingPage';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import ContactContainer from './components/ContactContainer';
-import AddContact from './components/AddContact';
 import NotFound from './components/NotFound';
 
 const styles = {
@@ -47,10 +46,7 @@ const Root = () => {
 				<IndexRoute component={LandingPage} />
 				<Route path="signup" component={SignUp} />
 				<Route path="signin" component={SignIn} />
-				<Route path="home">
-					<IndexRoute component={ContactContainer} />
-					<Route path="add" component={AddContact} />
-				</Route>
+				<Route path="home" component={ContactContainer} />
 				<Route path="*" component={NotFound} />
 			</Route>
 		</Router>

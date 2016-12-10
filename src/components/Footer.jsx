@@ -13,8 +13,8 @@ const styles = {
 class Footer extends React.Component{
 	render(){
 		return(
-			<div style={styles.rightAlign}>&copy; 2016 by
-				<a href="#" style={styles.profile}> TzeHsiung Wong</a>
+			<div style={styles.rightAlign}>&copy; {new Date().getFullYear()}
+				<a href="#" style={styles.profile}> Disconeq</a>
 			</div>
 		)
 	}

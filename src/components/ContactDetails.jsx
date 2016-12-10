@@ -2,12 +2,6 @@ import React from 'react';
 import { Icon } from 'react-fa';
 
 const styles = {
-	bordered: {
-		border: '1px solid black',
-		padding: '25px 15px 15px 15px',
-		backgroundColor: 'white',
-		minHeight: 380
-	},
 	editButton: {
 		width: '49%',
 		marginRight: '1%'
@@ -19,15 +13,44 @@ const styles = {
 	},
 	minHeight240px: {
 		minHeight: 240
+	},
+	show: {
+		display: 'block',
+		border: '1px solid black',
+		padding: '25px 15px 15px 15px',
+		backgroundColor: 'white',
+		minHeight: 380
+	},
+	hide: {
+		display: 'none'
+	},
+	selectable: {
+		cursor: 'pointer'
 	}
 }
 
 class ContactDetails extends React.Component{
+
+	constructor() {
+		super();
+		this.state = {
+			
+		}
+	}
+
+	back() {
+		this.props.toggleContactBrowserDisplay();
+		this.props.toggleContactDetailsDisplay();
+	}
+
 	render(){
 		return(
-			<div style={ styles.bordered } >
+			<div style={ this.props.display ? styles.show : styles.hide } >
 				<div className="row">
-					<h3>Wong Tze Hsiung</h3>	
+					<h3>
+						<Icon name="mail-reply" onClick={ (e) => this.back(e) } style={ styles.selectable }/>
+						&ensp;Wong Tze Hsiung
+					</h3>	
 				</div>
 				
 				<div className="row" style={ styles.minHeight240px }>
