@@ -19,7 +19,8 @@ const styles = {
 		border: '1px solid black',
 		padding: '25px 15px 15px 15px',
 		backgroundColor: 'white',
-		minHeight: 380
+		minHeight: 380,
+		zIndex: 2
 	},
 	hide: {
 		display: 'none'

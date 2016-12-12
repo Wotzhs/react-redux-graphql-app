@@ -3,7 +3,7 @@ import React from 'react';
 const styles = {
 	rightAlign: {
 		textAlign: 'right',
-		paddingRight: 25
+		paddingRight: 25,
 	},
 	profile: {
 		textDecoration: 'none'

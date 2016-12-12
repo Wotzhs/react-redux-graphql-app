@@ -3,11 +3,14 @@ import { browserHistory } from 'react-router';
 import { Link } from 'react-router';
 
 const styles = {
-	container: {
+	formContainer: {
 		paddingTop: '8%'
 	},
 	noDecoration: {
 		textDecoration: 'none'
+	},
+	mainContainer: {
+		marginBottom: '1.5em'
 	}
 };
 
@@ -23,48 +26,35 @@ class SignUp extends React.Component{
 
 	render(){
 		return(
-			<div>
-				<form style={styles.container} onSubmit={ (e) => this.createAccount(e) }>
+			<div style={ styles.mainContainer }>
+				<form style={styles.formContainer} onSubmit={ (e) => this.createAccount(e) }>
 					<div className="row">
-						<div className="three columns">&ensp;</div>
-						<div className="six columns">
+						<div className="offset-by-three columns six columns">
 							<input ref={ (input) => this.email = input } className="u-full-width" type="email" placeholder="Email"/>
 						</div>
-						<div className="three columns"></div>
 					</div>
 					<div className="row">
-						<div className="three columns">&ensp;</div>
-						<div className="six columns">
+						<div className="offset-by-three columns six columns">
 							<input ref={ (input) => this.password = input } className="u-full-width" type="password" placeholder="Password"/>
 						</div>
-						<div className="three columns"></div>
 					</div>				
 					<div className="row">
-						<div className="three columns">&ensp;</div>
-						<div className="six columns">
+						<div className="offset-by-three columns six columns">
 							<input className="button-primary" type="submit" value="Sign In!"/>
 						</div>
-						<div className="three columns"></div>
 					</div>					
 				</form>
 				<div className="row">
-					<div className="three columns">&ensp;</div>
-					<div className="six columns">
+					<div className="offset-by-three columns six columns">
 						<Link to="" style={ styles.noDecoration }>Forgot password?</Link>
 					</div>
-					<div className="three columns"></div>
 				</div>
 				<div className="row">
-					<div className="three columns">&ensp;</div>
-					<div className="six columns">
+					<div className="offset-by-three columns six columns">
 						New to Disconeq? <Link to={'/signup'} style={ styles.noDecoration} >Create an account</Link>
 					</div>
-					<div className="three columns"></div>
 				</div>		
-				
 			</div>
-			
-
 		)
 	}
 }
