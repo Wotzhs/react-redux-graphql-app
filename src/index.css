@@ -8,3 +8,44 @@ body {
 #background {
 	background-position-x: 70%;
 }
+
+h1,h2,h3,h4,h5,h6,p {
+	color: #555;
+}
+
+.trash-o {
+	color: red;
+}
+
+/* contact css
+-------------------------------------------------*/
+
+/*contact-container*/
+.row.contact-container {
+	margin-left: 1vw; 
+	margin-right: 1vw; 
+	background-color: white
+	
+}
+
+@media (min-width: 750px) {
+	.row.contact-container {
+		margin-top: 15vh;
+		margin-bottom: -5vh;
+		min-height: 421px;
+	}
+}
+
+@media (min-width: 1000px) {
+	.row.contact-container {
+		margin: 0vh 15vw 3vh 15vw;
+		padding: 5vh 0vw 0vh 0vw; 
+		min-height: 421px;
+	}
+}
+
+/*container-title*/
+h5.container-title {
+	margin-bottom: 0px;
+	text-align: center;
+}

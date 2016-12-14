@@ -17,8 +17,6 @@ import NotFound from './components/NotFound';
 const styles = {
 	contentDefault: {
 		minHeight: '75vh',
-		marginLeft: 25,
-		marginRight: 25
 	},
 	thin: {
 		marginTop: 0,
@@ -31,7 +29,7 @@ class BaseLayout extends React.Component{
 		return(
 			<div>
 				<Header />
-				<div style={styles.contentDefault}>{this.props.children}</div>
+				<div style={ styles.contentDefault }>{this.props.children}</div>
 				<hr style={styles.thin}/>
 				<Footer />
 			</div>

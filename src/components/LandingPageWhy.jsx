@@ -12,7 +12,6 @@ const styles = {
 	blockHeight: {
 		paddingTop: '15vh',
 		backgroundColor: 'white',
-		marginLeft: -25,
 		paddingLeft: 25,
 		paddingRight: 25,
 		position: 'absolute',

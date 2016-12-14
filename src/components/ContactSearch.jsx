@@ -23,17 +23,19 @@ class ContactSearch extends React.Component{
 	constructor(){
 		super();
 		this.state = {
-			show: false
+			showClearButton: false
 		}
 	}
 
-	search(event){
-		this.searchInput.value.length ? this.setState({show: true}) : this.setState({show: false})
+	search(){
+		this.searchInput.value.length ? this.setState({showClearButton: true}) : this.setState({showClearButton: false})
+		this.props.setFilter(this.searchInput.value);
 	};
 
 	clearInput(){
 		this.searchInput.value = null;
-		this.setState({show:false});
+		this.props.setFilter(this.searchInput.value);
+		this.setState({showClearButton:false});
 	}
 
 	render(){
@@ -49,7 +51,7 @@ class ContactSearch extends React.Component{
 				<Icon
 					name="times" 
 					className="u-pull-right" 
-					style={ this.state.show ? styles.show : styles.hide  }
+					style={ this.state.showClearButton ? styles.show : styles.hide  }
 					onClick={ (e) => this.clearInput(e)}
 				/>
 			</div>

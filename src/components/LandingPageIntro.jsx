@@ -8,8 +8,6 @@ const styles = {
 	},
 	height80vh: {
 		minHeight: 468.8,
-		marginLeft: -25,
-		marginRight: -25
 	},
 	backgroundImage: {
 		height: '70vh',

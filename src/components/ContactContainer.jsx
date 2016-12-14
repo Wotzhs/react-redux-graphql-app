@@ -4,31 +4,17 @@ import ContactList from './ContactList';
 import ContactDetails from './ContactDetails';
 import ContactAdd from './ContactAdd';
 
-const styles = {
-	show: {
-		display: 'block',
-		border: '1px black solid',
-		backgroundColor: 'white'
-	},
-	hide: {
-		display: 'none'
-	},
-	leftPadding25px: {
-		paddingLeft: '1vw',
-		paddingRight: '1vw'
-	}
-}
+import data from '../mock/data.js';
 
 class ContactContainer extends React.Component{
 
 	constructor() {
 		super();
 
-		this.addContact = this.addContact.bind(this);
-
 		this.state = {
-			contacts: {},
+			contacts: {data},
 			contactDetails: {},
+			contactFilter: '',
 			contactBrowserDisplay: true,
 			contactAddDisplay: false,
 			contactDetailsDisplay: false
@@ -46,6 +32,10 @@ class ContactContainer extends React.Component{
 		// set state
 		this.setState({ contacts })
 	}
+
+	setFilter(filterTextInput) {
+		this.setState({contactFilter: filterTextInput});
+	}
 	toggleContactBrowserDisplay(){
 		const contactBrowserDisplay = this.state.contactBrowserDisplay;
 		this.setState( { contactBrowserDisplay: !contactBrowserDisplay });
@@ -61,18 +51,23 @@ class ContactContainer extends React.Component{
 
 	render(){
 		return(
-			<div className="row" style={ styles.leftPadding25px }>
-				<div className="four columns" style={ this.state.contactBrowserDisplay ? styles.show : styles.hide } >
-					<ContactSearch />
-					<ContactList 
+			<div className="row contact-container">
+				<div className="six columns" >
+					<h5 className="container-title">All Contacts</h5>
+					<ContactSearch 
+						setFilter={ (e) => this.setFilter(e) }
+					/>
+					<ContactList
+						contacts={ this.state.contacts } 
+						contactFilter={ this.state.contactFilter }
 						toggleDisplay={ (e) => this.toggleContactBrowserDisplay(e) }
 						contactDetails={ (e) => this.toggleContactDetailsDisplay(e) } 
 					 />
 				</div>
-				<div className="eight columns">
+				<div className="six columns" >
 					<ContactAdd 
-						addContact={ this.addContact }
 						display={ this.state.contactAddDisplay }
+						addContact={ (e) => this.addContact(e) }
 						toggleDisplay={ (e) => this.toggleContactAddDisplay(e)}
 					/>
 					<ContactDetails 

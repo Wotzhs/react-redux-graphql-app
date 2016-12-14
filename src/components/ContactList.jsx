@@ -1,31 +1,6 @@
 import React from 'react';
+import Contact from './Contact';
 
-const styles = {
-	padding15px: {
-		padding: '5px 15px 0px 15px',
-		borderTop: '1px black solid',
-		cursor: 'pointer'
-	},
-	contactName: {
-		display: 'block',
-		fontWeight: 'bold'
-	},
-	contactNumber: {
-		display: 'block'
-	},
-	contactNameNumber: {
-		paddingTop: 3,
-		paddingLeft: 10,
-		float: 'left',
-		width: '73%'
-	},
-	contactPhoto: {
-		width: '15%',
-		float: 'left',
-		maxWidth: '13vw',
-		minWidth: '20%'
-	}
-}
 
 class ContactList extends React.Component{
 
@@ -35,15 +10,17 @@ class ContactList extends React.Component{
 	}
 
 	render(){
+		let con = [];
+		this.props.contacts.data.map( (contact, index) => {
+			if (contact.name.toLowerCase().indexOf(this.props.contactFilter) === -1 ) {
+				return;
+			}
+			con.push(<Contact contacts={ contact } key={index} toggleDisplay={ (e) => this.showContactDetails(e) } />)
+		});
+
 		return(
-			<div className="row" style={styles.padding15px} onClick={ (e) => this.showContactDetails(e)}>
-				<div style={ styles.contactPhoto }>
-					<img src="/default_avatar.jpg" alt="" className="u-max-full-width"/>
-				</div>
-				<div style={ styles.contactNameNumber }>
-					<span style={ styles.contactName }>Wong Tze Hsiung</span>
-					<span style={ styles.contactNumber }>016-9983022</span>
-				</div>
+			<div>
+				{con}
 			</div>
 		)
 	}
