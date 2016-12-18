@@ -9,16 +9,25 @@ const styles = {
 }
 
 class ContactList extends React.Component{
-
 	render(){
 		let con = [];
-		Object.keys(this.props.contacts).map( (contact) => {
-			if (this.props.contacts[contact].name.toLowerCase().indexOf(this.props.contactFilter) === -1 ) {
+		const sortedContacts = {};
+		const contacts = {...this.props.contacts};
+		const keys = Object.keys(contacts);
+		const sortedKeys = keys.sort( (current, next) => {
+			return contacts[current].name.toLowerCase() > contacts[next].name.toLowerCase();
+		})
+		sortedKeys.map ( (key) => {
+			return sortedContacts[key] = contacts[key];
+		})
+
+		Object.keys(sortedContacts).map( (contact) => {
+			if (sortedContacts[contact].name.toLowerCase().indexOf(this.props.contactFilter) === -1 ) {
 				return;
 			}
 			con.push(
 				<Contact 
-					contacts={ this.props.contacts[contact] } 
+					contacts={ sortedContacts[contact] } 
 					key={contact}
 					index={contact}
 					isMobile={ this.props.isMobile }

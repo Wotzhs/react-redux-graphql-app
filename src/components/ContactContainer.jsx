@@ -31,15 +31,7 @@ class ContactContainer extends React.Component{
 	}
 
 	componentWillMount() {
-		const sampleContactsKeys = Object.keys(sampleContacts);
-		const sortedContactKeys = sampleContactsKeys.sort( (current, next)=> {
-			return sampleContacts[current].name > sampleContacts[next].name;
-		});
-		const sortedContacts = sortedContactKeys.map( (key) => {
-			return sampleContacts[key]
-		});
-		console.log(sortedContacts);	
-		this.setState({ contacts: sortedContacts });
+		this.setState({ contacts: sampleContacts });
 	}
 
 	addContact( contact ) {
