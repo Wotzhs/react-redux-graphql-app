@@ -26,16 +26,22 @@ class ContactSearch extends React.Component{
 			showClearButton: false
 		}
 	}
-
 	search(){
 		this.searchInput.value.length ? this.setState({showClearButton: true}) : this.setState({showClearButton: false})
 		this.props.setFilter(this.searchInput.value);
-	};
-
+	}
 	clearInput(){
 		this.searchInput.value = null;
 		this.props.setFilter(this.searchInput.value);
 		this.setState({showClearButton:false});
+	}
+	displayAddContact(){
+		this.props.setContactAddDisplay(true);
+		this.props.clearContactDetails();
+		if (this.props.isMobile) {
+			this.props.setContactBrowserDisplay(false);
+		}
+
 	}
 
 	render(){
@@ -54,6 +60,10 @@ class ContactSearch extends React.Component{
 					style={ this.state.showClearButton ? styles.show : styles.hide  }
 					onClick={ (e) => this.clearInput(e)}
 				/>
+				<button className="button button-primary u-full-width" onClick={ (e) => this.displayAddContact(e) }>
+					<Icon name="user-plus" />&ensp;
+					Add New Contact
+				</button>
 			</div>
 		)
 	}

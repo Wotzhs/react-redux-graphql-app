@@ -20,10 +20,24 @@ const styles = {
 	},
 }
 
+
+
 class Contact extends React.Component{
+
+	displayDetails() {
+		const contactDetails = this.props.contacts;
+		const contactKey = this.props.index;
+		this.props.loadContactDetails( contactDetails );
+		this.props.setContactKey( contactKey);
+		if (this.props.isMobile) {
+			this.props.setContactBrowserDisplay(false);
+		}
+		this.props.setContactAddDisplay(false);
+	}
+
 	render() {
 		return(
-			<div className="row" style={styles.padding15px} onClick={ (e) => this.props.toggleDisplay(e)}>
+			<div className="row" style={styles.padding15px} onClick={ () => this.displayDetails() }>
 				<div style={ styles.contactNameNumber }>
 					<span style={ styles.contactName }>{this.props.contacts.name}</span>
 					<span style={ styles.contactNumber }>{this.props.contacts.tel}</span>

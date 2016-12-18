@@ -22,11 +22,7 @@ const styles = {
 		color: 'red'
 	},
 	show: {
-		display: 'block',
-		border: '1px solid black',
-		padding: '25px 15px 15px 15px',
-		backgroundColor: 'white',
-		minHeight: 380
+		padding: '0 15px 15px 15px',
 	},
 	hide: {
 		display: 'none'
@@ -39,25 +35,30 @@ class ContactAdd extends React.Component{
 		event.preventDefault();
 		const contact = {
 			name: this.name.value,
-			phone: this.phone.value,
+			tel: this.tel.value,
 			email: this.email.value,
 			organization: this.organization.value,
 			comments: this.comments.value
 		}
+		if (contact.name.length === 0 ) { alert("Name is required to save a contact"); return; }
 		this.props.addContact(contact);
 		this.contactForm.reset();
+		if (this.props.isMobile ) {
+			this.props.setContactAddDisplay(false);
+			this.props.setContactBrowserDisplay(true);
+		}
 
 	}
 
-	toggle(){
-		this.props.toggleDisplay();
+	cancel(){
+		this.props.setContactAddDisplay(false);
+		this.props.setContactBrowserDisplay(true);
 	}	
-
 
 	render(){
 		return(
 			<div style={ this.props.display ? styles.show : styles.hide }>
-				<h3>Add Contact</h3>
+				<h5>Add Contact</h5>
 
 				<form ref={ (input) => this.contactForm = input } onSubmit={ (e) => this.createContact(e) } >
 					<div className="row">
@@ -70,10 +71,30 @@ class ContactAdd extends React.Component{
 							/>
 						</div>
 						<div className="eight columns">
-							<input ref={ (input) => this.name = input } className="u-full-width" type="text" placeholder="Name"/>
-							<input ref={ (input) => this.phone = input } className="u-full-width" type="text" placeholder="Phone"/>
-							<input ref={ (input) => this.email = input } className="u-full-width" type="email" placeholder="Email"/>
-							<input ref={ (input) => this.organization = input } className="u-full-width" type="text" placeholder="Organization"/>
+							<input 
+								ref={ (input) => this.name = input } 
+								className="u-full-width" 
+								type="text" 
+								placeholder="Name"
+							/>
+							<input 
+								ref={ (input) => this.tel = input } 
+								className="u-full-width" 
+								type="text" 
+								placeholder="tel"
+							/>
+							<input 
+								ref={ (input) => this.email = input } 
+								className="u-full-width" 
+								type="email" 
+								placeholder="Email"
+							/>
+							<input 
+								ref={ (input) => this.organization = input } 
+								className="u-full-width" 
+								type="text" 
+								placeholder="Organization"
+							/>
 						</div>
 						
 					</div>
@@ -83,21 +104,22 @@ class ContactAdd extends React.Component{
 							ref={ (input) => this.comments = input }
 							className="u-full-width" 
 							placeholder="comments" 
-							style={ styles.minHeight100px }>
+						>
 						</textarea>
 					</div>
 					
 					<div className="row">
-		
-							<button className="u-full-width" style={ styles.saveButton }>
-								<Icon name="floppy-o" /> Save
-							</button>
-
-
-							<button className="u-full-width" type="button" style={ styles.cancelButton } onClick={ (e)=> this.toggle(e) }>
-								<Icon name="trash-o" /> Cancel
-							</button>
-
+						<button className="u-full-width" style={ styles.saveButton }>
+							<Icon name="floppy-o" /> Save
+						</button>
+						<button
+							className="u-full-width"
+							type="button" 
+							style={ styles.cancelButton }
+							onClick={ (e)=> this.cancel(e) }
+						>
+							<Icon name="trash-o" /> Cancel
+						</button>
 					</div>				
 				</form>
 			</div>

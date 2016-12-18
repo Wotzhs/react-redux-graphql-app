@@ -4,13 +4,13 @@ import { Link } from 'react-router';
 
 const styles = {
 	formContainer: {
-		paddingTop: '8%'
+		paddingTop: '7%'
 	},
 	noDecoration: {
 		textDecoration: 'none'
 	},
 	mainContainer: {
-		marginBottom: '1.5em'
+		padding: '0vw 5vw 0vw 5vw'
 	}
 };
 

@@ -5,7 +5,6 @@ const styles = {
 	header: {
 		paddingTop: 25,
 		paddingLeft: '2vw',
-		height: 70
 	},
 	noUnderline: {
 		textDecoration: 'none',
@@ -27,7 +26,7 @@ const styles = {
 class Header extends React.Component{
 	render(){
 		return(
-			<div className="row" style={ styles.header }>
+			<div className="row header" style={ styles.header } >
 				<span style={ styles.logo } >
 					<Link to={'/'} style={ styles.noUnderline }>Disconeq</Link>
 				</span>

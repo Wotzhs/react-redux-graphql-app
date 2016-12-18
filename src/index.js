@@ -18,10 +18,7 @@ const styles = {
 	contentDefault: {
 		minHeight: '75vh',
 	},
-	thin: {
-		marginTop: 0,
-		marginBottom: 10
-	}
+
 }
 
 class BaseLayout extends React.Component{
@@ -30,7 +27,7 @@ class BaseLayout extends React.Component{
 			<div>
 				<Header />
 				<div style={ styles.contentDefault }>{this.props.children}</div>
-				<hr style={styles.thin}/>
+				
 				<Footer />
 			</div>
 		)

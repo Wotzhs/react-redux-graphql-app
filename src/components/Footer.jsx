@@ -7,15 +7,23 @@ const styles = {
 	},
 	profile: {
 		textDecoration: 'none'
+	},
+	thin: {
+		marginTop: 0,
+		marginBottom: 10
 	}
 }
 
 class Footer extends React.Component{
 	render(){
 		return(
-			<div style={styles.rightAlign}>&copy; {new Date().getFullYear()}
-				<a href="#" style={styles.profile}> Disconeq</a>
+			<div>
+				<hr style={styles.thin}/>
+				<div style={styles.rightAlign}>&copy; {new Date().getFullYear()}
+					<a href="#" style={styles.profile}> Disconeq</a>
+				</div>
 			</div>
+			
 		)
 	}
 }

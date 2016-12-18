@@ -4,76 +4,131 @@ import ContactList from './ContactList';
 import ContactDetails from './ContactDetails';
 import ContactAdd from './ContactAdd';
 
-import data from '../mock/data.js';
+import sampleContacts from '../mock/data.js';
+
+const styles = {
+	show: {
+		display: 'block'
+	},
+	hide: {
+		display: 'none'
+	}
+}
 
 class ContactContainer extends React.Component{
-
 	constructor() {
 		super();
-
 		this.state = {
-			contacts: {data},
+			contacts: {},
 			contactDetails: {},
+			contactKey: '',
 			contactFilter: '',
 			contactBrowserDisplay: true,
 			contactAddDisplay: false,
-			contactDetailsDisplay: false
+			isMobile: window.matchMedia('(min-width: 570px)').matches ? false : true 
 		}
+		this.listenWindowWidthChanges();
 	}
 
-	addContact(contact) {
-		// update contact list
-		const contacts = {...this.state.contacts};
+	componentWillMount() {
+		const sampleContactsKeys = Object.keys(sampleContacts);
+		const sortedContactKeys = sampleContactsKeys.sort( (current, next)=> {
+			return sampleContacts[current].name > sampleContacts[next].name;
+		});
+		const sortedContacts = sortedContactKeys.map( (key) => {
+			return sampleContacts[key]
+		});
+		console.log(sortedContacts);	
+		this.setState({ contacts: sortedContacts });
+	}
 
-		// add in contact
+	addContact( contact ) {
+		const contacts = {...this.state.contacts};
 		const timestamp = Date.now();
 		contacts[`contact-${timestamp}`] = contact;
-
-		// set state
-		this.setState({ contacts })
+		this.setState({ contacts: contacts })
+	}
+	updateContact( updatedContact ) {
+		const contact = {...this.state.contacts};
+		contact[this.state.contactKey] = updatedContact;
+		this.setState({contacts: contact});
+	}
+	listenWindowWidthChanges(){
+		const mediaQuery = window.matchMedia('(min-width: 570px)');
+		mediaQuery.addListener( (mq) => {
+			if ( mq.matches ) {
+				this.setState( { contactBrowserDisplay: true, isMobile: false } );
+			}
+			if ( !mq.matches && !Object.keys(this.state.contactDetails).length ) {
+				this.setState( { contactBrowserDisplay: true, isMobile: true } );
+			}
+			if ( !mq.matches && Object.keys(this.state.contactDetails).length ) {
+				this.setState( { contactBrowserDisplay: false, isMobile: true } );
+			}
+			if ( !mq.matches && this.state.contactAddDisplay ) {
+				this.setState( { contactBrowserDisplay: false } );
+			}
+		})
 	}
 
 	setFilter(filterTextInput) {
-		this.setState({contactFilter: filterTextInput});
+		this.setState( { contactFilter: filterTextInput } );
 	}
-	toggleContactBrowserDisplay(){
-		const contactBrowserDisplay = this.state.contactBrowserDisplay;
-		this.setState( { contactBrowserDisplay: !contactBrowserDisplay });
+	loadContactDetails(contact) {
+		this.setState( { contactDetails: contact } );
 	}
-	toggleContactAddDisplay() {
-		const contactAddDisplay = this.state.contactAddDisplay;
-		this.setState( { contactAddDisplay: !contactAddDisplay } );
+	setContactKey( key ) {
+		this.setState( { contactKey: key } );
 	}
-	toggleContactDetailsDisplay() {
-		const contactDetailsDisplay = this.state.contactDetailsDisplay;
-		this.setState( { contactDetailsDisplay: !contactDetailsDisplay } )
+	clearContactDetails() {
+		this.setState({contactDetails: {}});
+	}
+	setContactBrowserDisplay( status ) {
+		this.setState( { contactBrowserDisplay: status });
+	}
+	setContactAddDisplay( status ) {
+		this.setState( { contactAddDisplay: status } );
 	}
 
 	render(){
 		return(
 			<div className="row contact-container">
-				<div className="six columns" >
+				<div
+					className="six columns"
+					style={ this.state.contactBrowserDisplay ? styles.show : styles.hide } 
+				>
 					<h5 className="container-title">All Contacts</h5>
 					<ContactSearch 
 						setFilter={ (e) => this.setFilter(e) }
+						isMobile={ this.state.isMobile }
+						setContactAddDisplay={ (e) => this.setContactAddDisplay(e) }
+						setContactBrowserDisplay={ (e) => this.setContactBrowserDisplay(e) }
+						clearContactDetails={ (e) => this.clearContactDetails(e) }
 					/>
 					<ContactList
 						contacts={ this.state.contacts } 
 						contactFilter={ this.state.contactFilter }
-						toggleDisplay={ (e) => this.toggleContactBrowserDisplay(e) }
-						contactDetails={ (e) => this.toggleContactDetailsDisplay(e) } 
+						isMobile={ this.state.isMobile }
+						setContactBrowserDisplay={ (e) => this.setContactBrowserDisplay(e) }
+						loadContactDetails={ (e) => this.loadContactDetails(e) }
+						setContactKey={ (e) => this.setContactKey(e) }
+						setContactAddDisplay={ (e) => this.setContactAddDisplay(e) }
 					 />
 				</div>
 				<div className="six columns" >
 					<ContactAdd 
 						display={ this.state.contactAddDisplay }
 						addContact={ (e) => this.addContact(e) }
-						toggleDisplay={ (e) => this.toggleContactAddDisplay(e)}
+						isMobile={ this.state.isMobile }
+						setContactBrowserDisplay={ (e) => this.setContactBrowserDisplay(e) }
+						setContactAddDisplay={ (e) => this.setContactAddDisplay(e)}
 					/>
 					<ContactDetails 
-						display={ this.state.contactDetailsDisplay }
-						toggleContactBrowserDisplay={ (e) => this.toggleContactBrowserDisplay(e) }
-						toggleContactDetailsDisplay={ (e) => this.toggleContactDetailsDisplay(e) }
+						contactDetails={ this.state.contactDetails }
+						clearContactDetails={ (e) => this.clearContactDetails(e) }
+						setContactBrowserDisplay={ (e) => this.setContactBrowserDisplay(e) }
+						loadContactDetails={ (e) => this.loadContactDetails(e) }
+						updateContact={ (e) => this.updateContact(e) }
 					/>
 				</div>
 			</div>
