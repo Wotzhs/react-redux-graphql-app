@@ -3,8 +3,11 @@ import Contact from './Contact';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 const styles = {
-	listHeight: {
+	desktopHeight: {
 		height: '45vh'
+	},
+	mobileHeight: {
+		height: '35vh'
 	}
 }
 
@@ -40,7 +43,7 @@ class ContactList extends React.Component{
 		});
 
 		return(
-			<Scrollbars autoHide style={ styles.listHeight }>
+			<Scrollbars autoHide style={ this.props.isMobile ? styles.mobileHeight : styles.desktopHeight }>
 				{con}
 			</Scrollbars>
 		)

@@ -3,42 +3,42 @@ module.exports = {
 		name: 'Sean',
 		tel: '016-9983022',
 		email: 'wotzhs@gmail.com',
-		organization: 'Pixl8 Interactive',
+		organization: 'Somewhere',
 		comments: ''
 	},
 	contact2: {
-		name: 'Horse',
+		name: 'Goldman',
 		tel: '011-3423513',
-		email: 'Horse@gmail.com',
-		organization: 'Pixl8 Interactive',
+		email: 'Goldman@gmail.com',
+		organization: 'Goldman Inc',
 		comments: ''
 	},
 	contact3: {
 		name: 'Random Guy',
 		tel: '016-9912232',
 		email: 'randomguy@gmail.com',
-		organization: 'Pixl8 Interactive',
+		organization: 'Random Company',
 		comments: ''
 	},
 	contact4: {
 		name: 'Random Girl',
 		tel: '016-3525231',
 		email: 'randomgirl@gmail.com',
-		organization: 'Pixl8 Interactive',
+		organization: 'Random Company',
 		comments: ''
 	},
 	contact5: {
-		name: 'Dog',
+		name: 'Somebody',
 		tel: '016-1231312',
-		email: 'dog@gmail.com',
-		organization: 'Pixl8 Interactive',
+		email: 'Somebody@gmail.com',
+		organization: 'Someones Company',
 		comments: ''
 	},
 	contact6: {
-		name: 'Cat',
+		name: 'Harry',
 		tel: '016-34634635',
-		email: 'cat@gmail.com',
-		organization: 'Pixl8 Interactive',
+		email: 'Harry@gmail.com',
+		organization: 'Harry Co',
 		comments: ''
 	}
 }
