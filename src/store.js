@@ -3,10 +3,10 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
 import rootReducer from './reducers/index';
-import sampleContacts from './mock/data.js';
+import contacts from './mock/data.js';
 
 const defaultState = {
-	sampleContacts
+	contacts
 }
 
 const store = createStore( rootReducer, defaultState );

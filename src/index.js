@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import store, { history } from './store';
 
 import '../vendor/skeleton/normalize.css';
 import '../vendor/skeleton/skeleton.css';
@@ -36,15 +38,17 @@ class BaseLayout extends React.Component{
 
 const Root = () => {
 	return (
-		<Router history={browserHistory}>
-			<Route path="/" component={BaseLayout}>
-				<IndexRoute component={LandingPage} />
-				<Route path="signup" component={SignUp} />
-				<Route path="signin" component={SignIn} />
-				<Route path="home" component={ContactContainer} />
-				<Route path="*" component={NotFound} />
-			</Route>
-		</Router>
+		<Provider store={store}>
+			<Router history={history}>
+				<Route path="/" component={BaseLayout}>
+					<IndexRoute component={LandingPage} />
+					<Route path="signup" component={SignUp} />
+					<Route path="signin" component={SignIn} />
+					<Route path="home" component={ContactContainer} />
+					<Route path="*" component={NotFound} />
+				</Route>
+			</Router>
+		</Provider>
 	)
 }
 
