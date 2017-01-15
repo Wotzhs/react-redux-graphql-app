@@ -1,5 +1,5 @@
 // add contact
-export function add( contactId, name, email, tel, organization, comment ) {
+export function addContact( contactId, name, email, tel, organization, comment ) {
 	return {
 		type: 'ADD_CONTACT',
 		contactId,
@@ -12,7 +12,7 @@ export function add( contactId, name, email, tel, organization, comment ) {
 }
 
 // edit contact
-export function edit( contactId ) {
+export function editContact( contactId ) {
 	return {
 		type: 'EDIT_CONTACT',
 		contactId
@@ -20,7 +20,7 @@ export function edit( contactId ) {
 }
 
 // delete contact
-export function delete( contactId ) {
+export function deleteContact( contactId ) {
 	return {
 		type: 'REMOVE_CONTACT',
 		contactId

@@ -4,8 +4,6 @@ import ContactList from './ContactList';
 import ContactDetails from './ContactDetails';
 import ContactAdd from './ContactAdd';
 
-import sampleContacts from '../mock/data.js';
-
 const styles = {
 	show: {
 		display: 'block'
@@ -19,7 +17,6 @@ class ContactContainer extends React.Component{
 	constructor() {
 		super();
 		this.state = {
-			contacts: {},
 			contactDetails: {},
 			contactKey: '',
 			contactFilter: '',
@@ -28,10 +25,6 @@ class ContactContainer extends React.Component{
 			isMobile: window.matchMedia('(min-width: 570px)').matches ? false : true 
 		}
 		this.listenWindowWidthChanges();
-	}
-
-	componentWillMount() {
-		this.setState({ contacts: sampleContacts });
 	}
 
 	addContact( contact ) {
@@ -98,7 +91,7 @@ class ContactContainer extends React.Component{
 						clearContactDetails={ (e) => this.clearContactDetails(e) }
 					/>
 					<ContactList
-						contacts={ this.state.contacts } 
+						contacts={ this.props.contacts } 
 						contactFilter={ this.state.contactFilter }
 						isMobile={ this.state.isMobile }
 						setContactBrowserDisplay={ (e) => this.setContactBrowserDisplay(e) }

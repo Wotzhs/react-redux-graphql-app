@@ -22,7 +22,7 @@ class ContactList extends React.Component{
 		})
 		sortedKeys.map ( (key) => {
 			return sortedContacts[key] = contacts[key];
-		})
+		});
 
 		Object.keys(sortedContacts).map( (contact) => {
 			if (sortedContacts[contact].name.toLowerCase().indexOf(this.props.contactFilter) === -1 ) {
