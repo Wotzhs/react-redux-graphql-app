@@ -26,13 +26,6 @@ class ContactContainer extends React.Component{
 		}
 		this.listenWindowWidthChanges();
 	}
-
-	addContact( contact ) {
-		const contacts = {...this.state.contacts};
-		const timestamp = Date.now();
-		contacts[`contact-${timestamp}`] = contact;
-		this.setState({ contacts: contacts })
-	}
 	updateContact( updatedContact ) {
 		const contact = {...this.state.contacts};
 		contact[this.state.contactKey] = updatedContact;
@@ -103,7 +96,7 @@ class ContactContainer extends React.Component{
 				<div className="six columns" >
 					<ContactAdd 
 						display={ this.state.contactAddDisplay }
-						addContact={ (e) => this.addContact(e) }
+						addContact={ (e) => this.props.addContact(e) }
 						isMobile={ this.state.isMobile }
 						setContactBrowserDisplay={ (e) => this.setContactBrowserDisplay(e) }
 						setContactAddDisplay={ (e) => this.setContactAddDisplay(e)}

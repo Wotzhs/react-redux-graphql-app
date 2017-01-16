@@ -1,7 +1,12 @@
-function contacts( state = [], action ) {
-	console.log("contacts will change")
-	console.log( state, action );
-	return state;
+function contacts( state = {}, action ) {
+	console.log(state);
+	switch( action.type ) {
+		case 'ADD_CONTACT' :
+			const timestamp = Date.now();
+			return {...state, [`contact-${timestamp}`]: action.contactDetails } ;
+		default:
+			return state;
+	}
 }
 
 export default contacts;

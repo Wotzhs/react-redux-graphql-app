@@ -16,6 +16,7 @@ class ContactList extends React.Component{
 		let con = [];
 		const sortedContacts = {};
 		const contacts = {...this.props.contacts};
+		console.log(contacts);
 		const keys = Object.keys(contacts);
 		const sortedKeys = keys.sort( (current, next) => {
 			return contacts[current].name.toLowerCase() > contacts[next].name.toLowerCase();

@@ -1,4 +1,4 @@
-import { createStore, compose } from 'redux';
+import { createStore } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
@@ -9,7 +9,7 @@ const defaultState = {
 	contacts
 };
 
-const store = createStore( rootReducer, compose(defaultState), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
+const store = createStore( rootReducer, defaultState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );
 
 export const history = syncHistoryWithStore( browserHistory, store );
 

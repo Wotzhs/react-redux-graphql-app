@@ -1,13 +1,8 @@
 // add contact
-export function addContact( contactId, name, email, tel, organization, comment ) {
+export function addContact( contactDetails ) {
 	return {
 		type: 'ADD_CONTACT',
-		contactId,
-		name,
-		email,
-		tel,
-		organization,
-		comment
+		contactDetails,
 	}
 }
 

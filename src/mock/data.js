@@ -1,4 +1,4 @@
-module.exports = {
+const contacts = {
 	contact1: {
 		name: 'Sean',
 		tel: '016-9983022',
@@ -42,3 +42,4 @@ module.exports = {
 		comments: ''
 	}
 }
+export default contacts;
