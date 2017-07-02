@@ -2,6 +2,14 @@ import axios from 'axios';
 
 const authAPI = 'http://localhost:4000/api';
 
+export function signOut( message ){
+	localStorage.removeItem( 'userToken' );
+	return {
+		type: 'SIGN_OUT',
+		message
+	}
+}
+
 export function signIn( credentials ) {
 	const request = axios.post( `${authAPI}/signin`, credentials )
 	return {
@@ -12,6 +20,7 @@ export function signIn( credentials ) {
 
 export function signInSuccess( token ) {
 	axios.defaults.headers.common['x-access-token'] = token;
+	localStorage.setItem( 'userToken', token );
 	return {
 		type: 'SIGN_IN_SUCCESS',
 		token
