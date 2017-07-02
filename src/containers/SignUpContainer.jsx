@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signUp, signUpError, signUpResetErrorMessage } from '../actions/auth';
+import { signUp, signUpError, signUpSuccess, signUpResetErrorMessage } from '../actions/auth';
 
 import SignUp from '../components/SignUp';
 
@@ -19,6 +19,7 @@ const mapDispatchToProps = dispatch => {
 					if ( !status ) { 
 						dispatch( signUpError( 'Email has been taken' ) )
 					}
+					dispatch( signUpSuccess( 'Successfully sign up, you may now proceed to sign in' ) )
 				});
 		},
 		signUpErrorReset: () => {
