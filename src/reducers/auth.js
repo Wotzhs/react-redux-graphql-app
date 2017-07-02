@@ -3,7 +3,7 @@ function auth( state ={}, action ) {
 		case 'SIGN_IN':
 			return state;
 		case 'SIGN_UP_SUCCESS':
-			return { ...state, success: true, message: action.payload };
+			return { ...state, success: true, message: action.message };
 		case 'SIGN_UP_ERROR':
 			return { ...state, success: false, message: action.payload };
 		case 'SIGN_UP_ERROR_RESET':
