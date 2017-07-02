@@ -8,7 +8,8 @@ import rootReducer from './reducers/index';
 const defaultState = {
 	contacts : {},
 	currentUser: { name: '', email: '' },
-	auth: { success: true, message: '' }
+	auth: { success: true, message: '' },
+	signIn: { message: '' }
 };
 
 const createStoreWithMiddleware = applyMiddleware( promise )( createStore );

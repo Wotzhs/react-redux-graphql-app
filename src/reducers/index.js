@@ -8,6 +8,7 @@ import auth from './auth';
 const rootReducer = combineReducers( { 
 	contacts,
 	currentUser,
+	signIn: auth,
 	auth,
 	routing: routerReducer 
 } );
