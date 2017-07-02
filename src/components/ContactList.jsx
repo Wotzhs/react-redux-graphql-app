@@ -16,13 +16,14 @@ class ContactList extends React.Component{
 		let con = [];
 		const sortedContacts = {};
 		const contacts = {...this.props.contacts};
+		console.log(contacts);
 		const keys = Object.keys(contacts);
 		const sortedKeys = keys.sort( (current, next) => {
 			return contacts[current].name.toLowerCase() > contacts[next].name.toLowerCase();
 		})
 		sortedKeys.map ( (key) => {
 			return sortedContacts[key] = contacts[key];
-		})
+		});
 
 		Object.keys(sortedContacts).map( (contact) => {
 			if (sortedContacts[contact].name.toLowerCase().indexOf(this.props.contactFilter) === -1 ) {

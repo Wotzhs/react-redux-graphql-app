@@ -1,50 +1,46 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
+import { Provider } from 'react-redux';
+import store, { history } from './store';
 
 import '../vendor/skeleton/normalize.css';
 import '../vendor/skeleton/skeleton.css';
 import './index.css';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+import BaseLayout from './components/BaseLayout';
+import App from './components/App';
 import LandingPage from './components/LandingPage';
-import SignUp from './components/SignUp';
-import SignIn from './components/SignIn';
-import ContactContainer from './components/ContactContainer';
+import SignUpContainer from './containers/SignUpContainer';
+import SignInContainer from './containers/SignInContainer';
 import NotFound from './components/NotFound';
 
-const styles = {
-	contentDefault: {
-		minHeight: '75vh',
-	},
-
+const loggedIn = () => {
+	let state = store.getState();
+	return state.currentUser.email.length;
 }
 
-class BaseLayout extends React.Component{
-	render(){
-		return(
-			<div>
-				<Header />
-				<div style={ styles.contentDefault }>{this.props.children}</div>
-				
-				<Footer />
-			</div>
-		)
+const requireAuth = ( nextState, replace ) => {
+	if ( !loggedIn() ) {
+		replace({
+			pathname: '/signin'
+		})
 	}
 }
 
 const Root = () => {
 	return (
-		<Router history={browserHistory}>
-			<Route path="/" component={BaseLayout}>
-				<IndexRoute component={LandingPage} />
-				<Route path="signup" component={SignUp} />
-				<Route path="signin" component={SignIn} />
-				<Route path="home" component={ContactContainer} />
-				<Route path="*" component={NotFound} />
-			</Route>
-		</Router>
+		<Provider store={store}>
+			<Router history={history}>
+				<Route path="/" component={BaseLayout}>
+					<IndexRoute component={LandingPage} />
+					<Route path="signup" component={SignUpContainer} />
+					<Route path="signin" component={SignInContainer} />
+					<Route path="home" component={App} onEnter={ requireAuth }/>
+					<Route path="*" component={NotFound} />
+				</Route>
+			</Router>
+		</Provider>
 	)
 }
 
