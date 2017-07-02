@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from './Header';
+import HeaderContainer from '../containers/HeaderContainer';
 import Footer from './Footer';
 
 class BaseLayout extends React.Component{
 	render(){
 		return(
 			<div>
-				<Header />
+				<HeaderContainer />
 				{this.props.children}
 				<Footer />
 			</div>
