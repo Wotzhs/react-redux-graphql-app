@@ -25,7 +25,7 @@ class SignUp extends React.Component{
 	render(){
 		return(
 
-			<form style={styles.container} onSubmit={ (e) => this.submitHandler(e)} onChange={ () => this.props.signUpErrorReset() }>
+			<form style={styles.container} onSubmit={ (e) => this.submitHandler(e) } onChange={ () => this.props.signUpErrorReset() }>
 				<div className="row">
 					<div className="offset-by-three columns six columns">
 						{ this.props.auth.message }
