@@ -1,15 +1,38 @@
 import axios from 'axios';
 
-const authAPI = 'http://localhost:4000/api/signup';
+const authAPI = 'http://localhost:4000/api';
 
 export function signIn( credentials ) {
+	const request = axios.post( `${authAPI}/signin`, credentials )
 	return {
 		type: 'SIGN_IN',
+		payload: request
+	}
+}
+
+export function signInSuccess( token ) {
+	axios.defaults.headers.common['x-access-token'] = token;
+	return {
+		type: 'SIGN_IN_SUCCESS',
+		token
+	}
+}
+
+export function signInError( message ) {
+	return {
+		type: 'SIGN_IN_ERROR',
+		message
+	}
+}
+
+export function signInResetErrorMessage(){
+	return {
+		type: 'SIGN_IN_ERROR_RESET'
 	}
 }
 
 export function signUp( signUpDetails ) {
-	const request = axios.post( authAPI, signUpDetails );
+	const request = axios.post( `${authAPI}/signup`, signUpDetails );
 	return {
 		type: 'SIGN_UP',
 		payload: request
