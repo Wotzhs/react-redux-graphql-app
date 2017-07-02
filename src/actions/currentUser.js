@@ -6,3 +6,9 @@ export function setCurrentUser( token ){
 		user: decode( token )
 	}
 }
+
+export function resetCurrentUser() {
+	return {
+		type: 'RESET_CURRENT_USER'
+	}
+}
