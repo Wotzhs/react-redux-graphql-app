@@ -5,9 +5,18 @@ import { browserHistory } from 'react-router';
 
 import rootReducer from './reducers/index';
 
+import decode from 'jwt-decode';
+
+let user = { name: '', email: '' }
+
+if ( localStorage.getItem( 'userToken') ) {
+	user = decode( localStorage.getItem( 'userToken' ) );
+}
+
+
 const defaultState = {
 	contacts : {},
-	currentUser: { name: '', email: '' },
+	currentUser: { name: user.name, email: user.email },
 	auth: { success: true, message: '' },
 	signIn: { message: '' }
 };
