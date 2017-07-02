@@ -1,5 +1,4 @@
 function contacts( state = {}, action ) {
-	console.log(state);
 	switch( action.type ) {
 		case 'ADD_CONTACT' :
 			const timestamp = Date.now();
@@ -8,8 +7,8 @@ function contacts( state = {}, action ) {
 			return { ...state, [ action.contactId ] : action.contactUpdatedDetails };
 		case 'DELETE_CONTACT' :
 			return { ...state };
-		case 'LOAD_CONTACT' :
-			return { ...state };
+		case 'LOAD_CONTACTS_SUCCESS' :
+			return { ...state, list: action.contacts  };
 		default:
 			return state;
 	}
