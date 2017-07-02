@@ -15,6 +15,19 @@ import SignUpContainer from './containers/SignUpContainer';
 import SignInContainer from './containers/SignInContainer';
 import NotFound from './components/NotFound';
 
+const loggedIn = () => {
+	let state = store.getState();
+	return state.currentUser.email.length;
+}
+
+const requireAuth = ( nextState, replace ) => {
+	if ( !loggedIn() ) {
+		replace({
+			pathname: '/signin'
+		})
+	}
+}
+
 const Root = () => {
 	return (
 		<Provider store={store}>
@@ -23,7 +36,7 @@ const Root = () => {
 					<IndexRoute component={LandingPage} />
 					<Route path="signup" component={SignUpContainer} />
 					<Route path="signin" component={SignInContainer} />
-					<Route path="home" component={App} />
+					<Route path="home" component={App} onEnter={ requireAuth }/>
 					<Route path="*" component={NotFound} />
 				</Route>
 			</Router>
