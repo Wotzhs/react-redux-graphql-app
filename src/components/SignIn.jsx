@@ -17,17 +17,25 @@ const styles = {
 
 class SignUp extends React.Component{
 
-	createAccount(event){
+	submitHandler(event){
 		event.preventDefault();
-		console.log(this.email.value);
-		console.log(this.password.value);
-		// browserHistory.push('/home');
+		const credentials = {
+			email: this.email.value,
+			password: this.password.value
+		}
+		this.props.signIn( credentials );
 	}
 
 	render(){
 		return(
 			<div style={ styles.mainContainer }>
-				<form style={styles.formContainer} onSubmit={ (e) => this.createAccount(e) }>
+				<form style={styles.formContainer} onSubmit={ (e) => this.submitHandler(e) } onChange={ () => this.props.signInResetErrorMessage() }>
+					<div className="row">
+						<div className="offset-by-three columns six columns">
+							{ this.props.signInStatus.message }
+						</div>
+					</div>
+					<br/>
 					<div className="row">
 						<div className="offset-by-three columns six columns">
 							<input ref={ (input) => this.email = input } className="u-full-width" type="email" placeholder="Email"/>

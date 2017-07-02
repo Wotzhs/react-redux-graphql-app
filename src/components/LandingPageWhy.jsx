@@ -6,9 +6,6 @@ const styles = {
 	justified: {
 		textAlign: 'justify'
 	},
-	centered:{
-		textAlign: 'center'
-	},
 	blockHeight: {
 		paddingTop: '15vh',
 		backgroundColor: 'white',
@@ -17,10 +14,6 @@ const styles = {
 		position: 'absolute',
 		zIndex: 2,
 		minHeight: '85vh'
-	},
-	hr: {
-		marginTop: '7vh',
-		marginBottom: 5
 	}
 }
 
@@ -49,7 +42,6 @@ class LandingPageWhy extends React.Component{
 						</div>
 					</div>
 				</div>
-				<hr style={ styles.hr } />
 				<Footer />
 			</div>
 		)

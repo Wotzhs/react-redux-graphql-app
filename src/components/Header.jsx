@@ -22,15 +22,23 @@ const styles = {
 	}
 }
 
-
 class Header extends React.Component{
+
+	renderSignOut() {
+		return <button className="button" style={ styles.loginButton } onClick={ () => this.props.signOut() }>Sign Out</button>;
+	}
+
+	renderSignIn() {
+		return <Link to={'/signin'} className="button" style={ styles.loginButton } >Sign In</Link>;
+	}
+
 	render(){
 		return(
 			<div className="row header" style={ styles.header } >
 				<span style={ styles.logo } >
-					<Link to={'/'} style={ styles.noUnderline }>Disconeq</Link>
+					<Link to={ this.props.currentUser.email.length ? '/home' : '/' } style={ styles.noUnderline }>Disconeq</Link>
 				</span>
-				<Link to={'/signin'} className="button" style={ styles.loginButton } >Sign In</Link>
+				{ this.props.currentUser.email.length ? this.renderSignOut() : this.renderSignIn() }
 			</div>
 		)
 	}
