@@ -26,6 +26,11 @@ class ContactContainer extends React.Component{
 		}
 		this.listenWindowWidthChanges();
 	}
+
+	componentWillMount() {
+		this.props.loadContacts();
+	}
+
 	updateContact( updatedContact ) {
 		const contact = {...this.state.contacts};
 		contact[this.state.contactKey] = updatedContact;
