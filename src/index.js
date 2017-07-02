@@ -11,7 +11,7 @@ import './index.css';
 import BaseLayout from './components/BaseLayout';
 import App from './components/App';
 import LandingPage from './components/LandingPage';
-import SignUp from './components/SignUp';
+import SignUpContainer from './containers/SignUpContainer';
 import SignIn from './components/SignIn';
 import NotFound from './components/NotFound';
 
@@ -21,7 +21,7 @@ const Root = () => {
 			<Router history={history}>
 				<Route path="/" component={BaseLayout}>
 					<IndexRoute component={LandingPage} />
-					<Route path="signup" component={SignUp} />
+					<Route path="signup" component={SignUpContainer} />
 					<Route path="signin" component={SignIn} />
 					<Route path="home" component={App} />
 					<Route path="*" component={NotFound} />
