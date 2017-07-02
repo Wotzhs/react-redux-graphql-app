@@ -12,7 +12,7 @@ import BaseLayout from './components/BaseLayout';
 import App from './components/App';
 import LandingPage from './components/LandingPage';
 import SignUpContainer from './containers/SignUpContainer';
-import SignIn from './components/SignIn';
+import SignInContainer from './containers/SignInContainer';
 import NotFound from './components/NotFound';
 
 const Root = () => {
@@ -22,7 +22,7 @@ const Root = () => {
 				<Route path="/" component={BaseLayout}>
 					<IndexRoute component={LandingPage} />
 					<Route path="signup" component={SignUpContainer} />
-					<Route path="signin" component={SignIn} />
+					<Route path="signin" component={SignInContainer} />
 					<Route path="home" component={App} />
 					<Route path="*" component={NotFound} />
 				</Route>
