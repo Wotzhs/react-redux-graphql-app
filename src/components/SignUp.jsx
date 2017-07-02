@@ -9,33 +9,43 @@ const styles = {
 
 class SignUp extends React.Component{
 
-	createAccount(event){
+	submitHandler(event){
 		event.preventDefault();
-		const userAccount = {
+		const signUpDetails = {
 			name    : this.name.value,
 			email   : this.email.value,
 			password: this.password.value
 		}
-		console.log(userAccount);
-
+		this.props.signUp( signUpDetails );
+		this.name.value     = '';
+		this.email.value    = '';
+		this.password.value = '';
 	}
 
 	render(){
 		return(
-			<form style={styles.container} onSubmit={ (e) => this.createAccount(e)}>
+
+			<form style={styles.container} onSubmit={ (e) => this.submitHandler(e)} onChange={ () => this.props.signUpErrorReset() }>
 				<div className="row">
 					<div className="offset-by-three columns six columns">
-						<input ref={ (input) => this.name = input} className="u-full-width" type="text" placeholder="Name"/>
+						{ this.props.auth.message }
+					</div>
+				</div>
+				<br/>
+				
+				<div className="row">
+					<div className="offset-by-three columns six columns">
+						<input ref={ (input) => this.name = input} className="u-full-width" type="text" placeholder="Name" required/>
 					</div>
 				</div>
 				<div className="row">
 					<div className="offset-by-three columns six columns">
-						<input ref={ (input) => this.email = input} className="u-full-width" type="email" placeholder="Email"/>
+						<input ref={ (input) => this.email = input} className="u-full-width" type="email" placeholder="Email" required/>
 					</div>
 				</div>
 				<div className="row">
 					<div className="offset-by-three columns six columns">
-						<input ref={ (input) => this.password = input} className="u-full-width" type="password" placeholder="Password"/>
+						<input ref={ (input) => this.password = input} className="u-full-width" type="password" placeholder="Password" required/>
 					</div>
 				</div>				
 				<div className="row">
