@@ -21,7 +21,7 @@ class ContactList extends React.Component{
 				contactList.push(
 					<Contact 
 						contacts={ contact } 
-						key={index}
+						key={ contact._id }
 						isMobile={ this.props.isMobile }
 						setContactBrowserDisplay={ (e) => this.props.setContactBrowserDisplay(e) }
 						loadContactDetails={ (e) => this.props.loadContactDetails(e) }
