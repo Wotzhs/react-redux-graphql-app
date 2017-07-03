@@ -37,8 +37,8 @@ class ContactAdd extends React.Component{
 			name: this.name.value,
 			tel: this.tel.value,
 			email: this.email.value,
-			organization: this.organization.value,
-			comments: this.comments.value
+			organisation: this.organization.value,
+			comment: this.comments.value
 		}
 		if (contact.name.length === 0 ) { alert("Name is required to save a contact"); return; }
 		this.props.addContact(contact);
@@ -76,6 +76,7 @@ class ContactAdd extends React.Component{
 								className="u-full-width" 
 								type="text" 
 								placeholder="Name"
+								required
 							/>
 							<input 
 								ref={ (input) => this.tel = input } 

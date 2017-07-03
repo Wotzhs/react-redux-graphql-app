@@ -94,7 +94,7 @@ class ContactDetails extends React.Component{
 							</div>
 							
 							<label>Organization</label>
-							<p>{ this.props.contactDetails.organization }</p>
+							<p>{ this.props.contactDetails.organisation }</p>
 							<label>Comment</label>
 							<p>{ this.props.contactDetails.comment }</p>
 						</div>
