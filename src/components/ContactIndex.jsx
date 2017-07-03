@@ -2,7 +2,7 @@ import React from 'react';
 import ContactSearch from './ContactSearch';
 import ContactList from './ContactList';
 import ContactDetails from './ContactDetails';
-import ContactAdd from './ContactAdd';
+import ContactAddContainer from '../containers/ContactAddContainer';
 
 const styles = {
 	show: {
@@ -76,6 +76,7 @@ class ContactContainer extends React.Component{
 	render(){
 		return(
 			<div className="row contact-container">
+				{ this.props.contacts.refetch ? this.props.loadContacts() : null }
 				<div
 					className="six columns"
 					style={ this.state.contactBrowserDisplay ? styles.show : styles.hide } 
@@ -99,7 +100,7 @@ class ContactContainer extends React.Component{
 					 />
 				</div>
 				<div className="six columns" >
-					<ContactAdd 
+					<ContactAddContainer 
 						display={ this.state.contactAddDisplay }
 						addContact={ (e) => this.props.addContact(e) }
 						isMobile={ this.state.isMobile }
