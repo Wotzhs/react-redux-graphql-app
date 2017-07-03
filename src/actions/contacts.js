@@ -4,9 +4,24 @@ const contactAPI = 'http://localhost:4001/api';
 axios.defaults.headers.common['x-access-token'] = localStorage.getItem( 'userToken' );
 
 export function addContact( contactDetails ) {
+	const request = axios.post( `${contactAPI}/contacts`, contactDetails);
 	return {
 		type: 'ADD_CONTACT',
-		contactDetails,
+		payload: request,
+	}
+}
+
+export function addContactSuccess( message ) {
+	return {
+		type: 'ADD_CONTACT_SUCCESS',
+		message
+	}
+}
+
+export function addContactError( message ) {
+	return {
+		type: 'ADD_CONTACT_ERROR',
+		message
 	}
 }
 
@@ -26,11 +41,6 @@ export function deleteContact( contactId ) {
 
 export function loadContacts() {
 	const request = axios.get( `${contactAPI}/contacts` );
-	// const contact = {
-	// 	name: 'brother',
-	// 	user: '5958bb352a8a332eb03fa8a9'
-	// }
-	// const request = axios.post( `${contactAPI}/contacts`, contact);
 	return {
 		type: 'LOAD_CONTACTS',
 		payload: request
