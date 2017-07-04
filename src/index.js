@@ -11,7 +11,7 @@ import './index.css';
 import BaseLayout from './components/BaseLayout';
 import LandingPage from './components/LandingPage';
 import ContactContainer from './containers/ContactContainer';
-import ContactAddContainer from './containers/ContactAddContainer';
+import ContactAdd from './components/ContactAdd';
 import SignUpContainer from './containers/SignUpContainer';
 import SignInContainer from './containers/SignInContainer';
 import ContactView from './components/ContactView';
@@ -39,7 +39,7 @@ const Root = () => {
 					<Route path="signup" component={SignUpContainer} />
 					<Route path="signin" component={SignInContainer} />
 					<Route path="home" component={ContactContainer} onEnter={ requireAuth }>
-						<Route path="add" component={ContactAddContainer} />
+						<Route path="add" component={ContactAdd} />
 						<Route path="view/:id" component={ContactView} />
 					</Route>
 					<Route path="*" component={NotFound} />
