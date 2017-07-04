@@ -85,7 +85,7 @@ class ContactContainer extends React.Component{
 					 />
 				</div>
 				<div className="six columns" >
-					{ this.props.children ? React.cloneElement( this.props.children, this.props.contacts ) : null }
+					{ this.props.children ? React.cloneElement( this.props.children, { contacts: this.props.contacts, addContact: this.props.addContact } ) : null }
 				</div>
 			</div>
 		)
