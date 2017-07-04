@@ -41,8 +41,8 @@ class ContactDetails extends React.Component{
 		
 		let activeContact = { name: ''};
 
-		if ( this.props.hasOwnProperty('list') ) {
-			activeContact = this.props.list.find( ( contact ) => { return contact._id === this.props.routeParams.id } );
+		if ( this.props.contacts.hasOwnProperty('list') ) {
+			activeContact = this.props.contacts.list.find( ( contact ) => { return contact._id === this.props.routeParams.id } );
 		}
 
 		return(
