@@ -2,7 +2,8 @@ import React from 'react';
 import ContactSearch from './ContactSearch';
 import ContactList from './ContactList';
 import ContactDetails from './ContactDetails';
-import ContactAddContainer from '../containers/ContactAddContainer';
+import { Icon } from 'react-fa';
+import { Link } from 'react-router';
 
 const styles = {
 	show: {
@@ -10,32 +11,24 @@ const styles = {
 	},
 	hide: {
 		display: 'none'
-	}
+	},
+	padding15px: {
+		padding: '0px 15px 0px 15px',
+		fontFamily: 'fontAwesome'
+	},
 }
 
 class ContactContainer extends React.Component{
 	constructor() {
 		super();
 		this.state = {
-			contactDetails: {},
-			contactKey: '',
 			contactFilter: '',
 			contactBrowserDisplay: true,
-			contactAddDisplay: false,
 			isMobile: window.matchMedia('(min-width: 570px)').matches ? false : true 
 		}
 		this.listenWindowWidthChanges();
 	}
 
-	componentWillMount() {
-		this.props.loadContacts();
-	}
-
-	updateContact( updatedContact ) {
-		const contact = {...this.state.contacts};
-		contact[this.state.contactKey] = updatedContact;
-		this.setState({contacts: contact});
-	}
 	listenWindowWidthChanges(){
 		const mediaQuery = window.matchMedia('(min-width: 570px)');
 		mediaQuery.addListener( (mq) => {
@@ -57,26 +50,14 @@ class ContactContainer extends React.Component{
 	setFilter(filterTextInput) {
 		this.setState( { contactFilter: filterTextInput } );
 	}
-	loadContactDetails(contact) {
-		this.setState( { contactDetails: contact } );
-	}
-	setContactKey( key ) {
-		this.setState( { contactKey: key } );
-	}
-	clearContactDetails() {
-		this.setState({contactDetails: {}});
-	}
 	setContactBrowserDisplay( status ) {
 		this.setState( { contactBrowserDisplay: status });
-	}
-	setContactAddDisplay( status ) {
-		this.setState( { contactAddDisplay: status } );
 	}
 
 	render(){
 		return(
 			<div className="row contact-container">
-				{ this.props.contacts.refetch ? this.props.loadContacts() : null }
+				{ this.props.contacts.refetch || !this.props.contacts.list.length ? this.props.loadContacts() : null }
 				<div
 					className="six columns"
 					style={ this.state.contactBrowserDisplay ? styles.show : styles.hide } 
@@ -89,31 +70,22 @@ class ContactContainer extends React.Component{
 						setContactBrowserDisplay={ (e) => this.setContactBrowserDisplay(e) }
 						clearContactDetails={ (e) => this.clearContactDetails(e) }
 					/>
+					<div style={ styles.padding15px }>
+						<Link to={ '/home/add' } className="button button-primary u-full-width">
+							<Icon name="user-plus" />&ensp;
+							Add New Contact
+						</Link>
+					</div>
+					
 					<ContactList
 						contacts={ this.props.contacts } 
 						contactFilter={ this.state.contactFilter }
 						isMobile={ this.state.isMobile }
 						setContactBrowserDisplay={ (e) => this.setContactBrowserDisplay(e) }
-						loadContactDetails={ (e) => this.loadContactDetails(e) }
-						setContactKey={ (e) => this.setContactKey(e) }
-						setContactAddDisplay={ (e) => this.setContactAddDisplay(e) }
 					 />
 				</div>
 				<div className="six columns" >
-					<ContactAddContainer 
-						display={ this.state.contactAddDisplay }
-						addContact={ (e) => this.props.addContact(e) }
-						isMobile={ this.state.isMobile }
-						setContactBrowserDisplay={ (e) => this.setContactBrowserDisplay(e) }
-						setContactAddDisplay={ (e) => this.setContactAddDisplay(e)}
-					/>
-					<ContactDetails 
-						contactDetails={ this.state.contactDetails }
-						clearContactDetails={ (e) => this.clearContactDetails(e) }
-						setContactBrowserDisplay={ (e) => this.setContactBrowserDisplay(e) }
-						loadContactDetails={ (e) => this.loadContactDetails(e) }
-						updateContact={ (e) => this.updateContact(e) }
-					/>
+					{ this.props.children ? React.cloneElement( this.props.children, this.props.contacts ) : null }
 				</div>
 			</div>
 		)
