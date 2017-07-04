@@ -8,7 +8,7 @@ function contacts( state = {}, action ) {
 		case 'DELETE_CONTACT' :
 			return { ...state };
 		case 'LOAD_CONTACTS_SUCCESS' :
-			return { ...state, list: action.contacts };
+			return { ...state, list: action.contacts, refetch: false };
 		default:
 			return state;
 	}
