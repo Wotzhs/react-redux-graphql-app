@@ -60,10 +60,6 @@ class ContactSearch extends React.Component{
 					style={ this.state.showClearButton ? styles.show : styles.hide  }
 					onClick={ (e) => this.clearInput(e)}
 				/>
-				<button className="button button-primary u-full-width" onClick={ (e) => this.displayAddContact(e) }>
-					<Icon name="user-plus" />&ensp;
-					Add New Contact
-				</button>
 			</div>
 		)
 	}
