@@ -41,6 +41,9 @@ const mapDispatchToProps = dispatch => {
 					browserHistory.push(`/home`)
 				})
 				.catch( err=> dispatch( contactAction.deleteContactError( err ) ) )
+		},
+		filterContact: filterKeyword => {
+			dispatch( contactAction.filterContact( filterKeyword ) )
 		}
 	}
 }
