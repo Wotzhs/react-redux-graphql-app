@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { loadContacts, loadContactsSuccess, addContact, addContactSuccess, addContactError } from '../actions/contacts';
+import { loadContacts, loadContactsSuccess, addContact, addContactSuccess, addContactError, updateContact, updateContactSuccess, updateContactError } from '../actions/contacts';
 import { browserHistory } from 'react-router';
 import ContactIndex from '../components/ContactIndex';
 
@@ -25,6 +25,14 @@ const mapDispatchToProps = dispatch => {
 					browserHistory.push('/home')
 				} )
 				.catch( err => dispatch( addContactError( err ) ) );
+		},
+		updateContact: ( contactDetails, contactId ) => {
+			dispatch( updateContact( contactDetails, contactId ) )
+				.then( () => {
+					dispatch( updateContactSuccess( '' ) );
+					browserHistory.push(`/home/view/${contactId}`);
+				})
+				.catch( err => dispatch( updateContactError( err ) ) )
 		}
 	}
 }
