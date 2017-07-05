@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { loadContacts, loadContactsSuccess, addContact, addContactSuccess, addContactError, updateContact, updateContactSuccess, updateContactError } from '../actions/contacts';
+import * as contactAction from '../actions/contacts';
 import { browserHistory } from 'react-router';
 import ContactIndex from '../components/ContactIndex';
 
@@ -12,27 +12,35 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		loadContacts: userId => {
-			dispatch( loadContacts( userId ) )
+			dispatch( contactAction.loadContacts( userId ) )
 				.then( res => {
-					dispatch( loadContactsSuccess( res.payload.data.contacts ) ) 
+					dispatch( contactAction.loadContactsSuccess( res.payload.data.contacts ) ) 
 				} )
 				.catch( err => console.log( err))
 		},
 		addContact: contactDetails => {
-			dispatch( addContact( contactDetails ) )
+			dispatch( contactAction.addContact( contactDetails ) )
 				.then( () => { 
-					dispatch( addContactSuccess( 'Successfully added' ) );
+					dispatch( contactAction.addContactSuccess( 'Successfully added' ) );
 					browserHistory.push('/home')
 				} )
-				.catch( err => dispatch( addContactError( err ) ) );
+				.catch( err => dispatch( contactAction.addContactError( err ) ) );
 		},
 		updateContact: ( contactDetails, contactId ) => {
-			dispatch( updateContact( contactDetails, contactId ) )
+			dispatch( contactAction.updateContact( contactDetails, contactId ) )
 				.then( () => {
-					dispatch( updateContactSuccess( '' ) );
+					dispatch( contactAction.updateContactSuccess( '' ) );
 					browserHistory.push(`/home/view/${contactId}`);
 				})
-				.catch( err => dispatch( updateContactError( err ) ) )
+				.catch( err => dispatch( contactAction.updateContactError( err ) ) )
+		},
+		deleteContact: contactId => {
+			dispatch( contactAction.deleteContact( contactId ) )
+				.then( ()=> {
+					dispatch( contactAction.deleteContactSuccess() )
+					browserHistory.push(`/home`)
+				})
+				.catch( err=> dispatch( contactAction.deleteContactError( err ) ) )
 		}
 	}
 }

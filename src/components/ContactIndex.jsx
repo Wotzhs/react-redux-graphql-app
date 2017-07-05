@@ -89,7 +89,8 @@ class ContactContainer extends React.Component{
 						this.props.children ? React.cloneElement( this.props.children, { 
 							contacts: this.props.contacts, 
 							addContact: this.props.addContact,
-							updateContact: this.props.updateContact
+							updateContact: this.props.updateContact,
+							deleteContact: this.props.deleteContact
 						}) : null 
 					}
 				</div>

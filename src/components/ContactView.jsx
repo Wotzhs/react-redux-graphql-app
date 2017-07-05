@@ -37,6 +37,10 @@ const styles = {
 
 class ContactDetails extends React.Component{
 
+	clickHandler(){
+		this.props.deleteContact( this.props.routeParams.id );
+	}
+
 	render(){
 		
 		let activeContact = { name: ''};
@@ -84,7 +88,7 @@ class ContactDetails extends React.Component{
 					>
 						<Icon name="pencil"/> Edit
 					</Link>
-					<button className="button" style={ styles.deleteButton }><Icon name="trash"/> Delete</button>
+					<button className="button" style={ styles.deleteButton } onClick={ () => this.clickHandler() }><Icon name="trash"/> Delete</button>
 				</div>
 			</div>
 		)
