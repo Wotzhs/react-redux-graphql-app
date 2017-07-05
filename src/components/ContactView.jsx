@@ -77,13 +77,13 @@ class ContactDetails extends React.Component{
 				<br/>
 
 				<div className="row">
-					<button 
+					<Link 
+						to={ `/home/edit/${this.props.routeParams.id}` }
 						className="button" 
 						style={ styles.editButton }
-						onClick={(e)=> this.handleClick(e) }
 					>
 						<Icon name="pencil"/> Edit
-					</button>
+					</Link>
 					<button className="button" style={ styles.deleteButton }><Icon name="trash"/> Delete</button>
 				</div>
 			</div>
