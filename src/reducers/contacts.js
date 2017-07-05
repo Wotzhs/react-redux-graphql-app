@@ -3,8 +3,11 @@ function contacts( state = {}, action ) {
 		case 'ADD_CONTACT_SUCCESS':
 			return { ...state, refetch: true }
 		case 'ADD_CONTACT_ERROR':
-		case 'EDIT_CONTACT' :
-			return { ...state, [ action.contactId ] : action.contactUpdatedDetails };
+			return { ...state, refetch: false}
+		case 'UPDATE_CONTACT_SUCCESS':
+			return { ...state, refetch: true }
+		case 'UPDATE_CONTACT_ERROR':
+			return { ...state, refetch: false }
 		case 'DELETE_CONTACT' :
 			return { ...state };
 		case 'LOAD_CONTACTS_SUCCESS' :

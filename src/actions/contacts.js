@@ -25,10 +25,25 @@ export function addContactError( message ) {
 	}
 }
 
-export function editContact( contactId ) {
+export function updateContact( contactDetails, contactId ) {
+	const request = axios.patch( `${contactAPI}/contacts/${contactId}`, contactDetails);
 	return {
-		type: 'EDIT_CONTACT',
-		contactId
+		type: 'UPDATE_CONTACT',
+		payload: request
+	}
+}
+
+export function updateContactSuccess( message ) {
+	return {
+		type: 'UPDATE_CONTACT_SUCCESS',
+		message
+	}
+}
+
+export function updateContactError( message ) {
+	return {
+		type: 'UPDATE_CONTACT_ERROR',
+		message
 	}
 }
 
@@ -38,6 +53,8 @@ export function deleteContact( contactId ) {
 		contactId
 	}	
 }
+
+
 
 export function loadContacts() {
 	const request = axios.get( `${contactAPI}/contacts` );
