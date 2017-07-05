@@ -22,7 +22,6 @@ class ContactContainer extends React.Component{
 	constructor() {
 		super();
 		this.state = {
-			contactFilter: '',
 			contactBrowserDisplay: true,
 			isMobile: window.matchMedia('(min-width: 570px)').matches ? false : true 
 		}
@@ -47,9 +46,6 @@ class ContactContainer extends React.Component{
 		})
 	}
 
-	setFilter(filterTextInput) {
-		this.setState( { contactFilter: filterTextInput } );
-	}
 	setContactBrowserDisplay( status ) {
 		this.setState( { contactBrowserDisplay: status });
 	}
@@ -64,7 +60,7 @@ class ContactContainer extends React.Component{
 				>
 					<h5 className="container-title">All Contacts</h5>
 					<ContactSearch 
-						setFilter={ (e) => this.setFilter(e) }
+						filterContact={ (e) => this.props.filterContact(e) }
 						isMobile={ this.state.isMobile }
 						setContactAddDisplay={ (e) => this.setContactAddDisplay(e) }
 						setContactBrowserDisplay={ (e) => this.setContactBrowserDisplay(e) }

@@ -43,6 +43,9 @@ class ContactSearch extends React.Component{
 		}
 
 	}
+	handleChange( e ){
+		this.props.filterContact(e.target.value);
+	}
 
 	render(){
 		return(
@@ -51,8 +54,8 @@ class ContactSearch extends React.Component{
 					type="text"
 					placeholder="&#xf002;  Search..."
 					className="u-full-width"
-					onChange={ (e) => this.search(e) }
-					ref={ (input) => this.searchInput = input }
+					onChange={ (e) => this.handleChange(e) }
+					defaultValue={ this.props.contactFilter }
 				/>
 				<Icon
 					name="times" 
