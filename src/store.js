@@ -15,7 +15,7 @@ if ( localStorage.getItem( 'userToken') ) {
 
 
 const defaultState = {
-	contacts : { list: [], refetch: false },
+	contacts : { list: [], refetch: false, filter: '' },
 	currentUser: { name: user.name, email: user.email },
 	auth: { success: true, message: '' },
 	signIn: { message: '' }
