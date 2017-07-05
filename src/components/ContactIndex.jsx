@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactSearch from './ContactSearch';
 import ContactList from './ContactList';
-import ContactDetails from './ContactDetails';
+
 import { Icon } from 'react-fa';
 import { Link } from 'react-router';
 
@@ -85,7 +85,13 @@ class ContactContainer extends React.Component{
 					 />
 				</div>
 				<div className="six columns" >
-					{ this.props.children ? React.cloneElement( this.props.children, { contacts: this.props.contacts, addContact: this.props.addContact } ) : null }
+					{ 
+						this.props.children ? React.cloneElement( this.props.children, { 
+							contacts: this.props.contacts, 
+							addContact: this.props.addContact,
+							updateContact: this.props.updateContact
+						}) : null 
+					}
 				</div>
 			</div>
 		)
