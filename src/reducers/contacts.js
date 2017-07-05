@@ -14,6 +14,8 @@ function contacts( state = {}, action ) {
 			return { ...state, refetch: false }
 		case 'LOAD_CONTACTS_SUCCESS' :
 			return { ...state, list: action.contacts, refetch: false };
+		case 'FILTER_CONTACT':
+			return { ...state, filter: action.filterKeyword }
 		default:
 			return state;
 	}

@@ -83,3 +83,11 @@ export function loadContactsSuccess( contacts ) {
 		contacts
 	}
 }
+
+export function filterContact( filterKeyword ) {
+	console.log(filterKeyword)
+	return {
+		type: 'FILTER_CONTACT',
+		filterKeyword
+	}
+}
