@@ -48,13 +48,26 @@ export function updateContactError( message ) {
 }
 
 export function deleteContact( contactId ) {
+	const request = axios.delete( `${contactAPI}/contacts/${contactId}`);
 	return {
-		type: 'REMOVE_CONTACT',
-		contactId
+		type: 'DELETE_CONTACT',
+		payload: request
 	}	
 }
 
+export function deleteContactSuccess( message ) {
+	return {
+		type: 'DELETE_CONTACT_SUCCESS',
+		message
+	}	
+}
 
+export function deleteContactError( message ) {
+	return {
+		type: 'DELETE_CONTACT_ERROR',
+		message
+	}	
+}
 
 export function loadContacts() {
 	const request = axios.get( `${contactAPI}/contacts` );
