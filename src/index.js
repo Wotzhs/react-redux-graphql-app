@@ -12,9 +12,10 @@ import BaseLayout from './components/BaseLayout';
 import LandingPage from './components/LandingPage';
 import ContactContainer from './containers/ContactContainer';
 import ContactAdd from './components/ContactAdd';
+import ContactEdit from './components/ContactEdit';
+import ContactView from './components/ContactView';
 import SignUpContainer from './containers/SignUpContainer';
 import SignInContainer from './containers/SignInContainer';
-import ContactView from './components/ContactView';
 import NotFound from './components/NotFound';
 
 const loggedIn = () => {
@@ -41,6 +42,7 @@ const Root = () => {
 					<Route path="home" component={ContactContainer} onEnter={ requireAuth }>
 						<Route path="add" component={ContactAdd} />
 						<Route path="view/:id" component={ContactView} />
+						<Route path="edit/:id" component={ContactEdit} />
 					</Route>
 					<Route path="*" component={NotFound} />
 				</Route>
