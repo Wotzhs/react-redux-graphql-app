@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon } from 'react-fa';
+import { Link } from 'react-router';
 
 const styles = {
 	minHeight100px: {
@@ -21,7 +22,7 @@ const styles = {
 		marginRight: '1%',
 		color: 'red'
 	},
-	show: {
+	padding: {
 		padding: '0 15px 15px 15px',
 	},
 	hide: {
@@ -37,12 +38,11 @@ class ContactAdd extends React.Component{
 			name: this.name.value,
 			tel: this.tel.value,
 			email: this.email.value,
-			organization: this.organization.value,
-			comments: this.comments.value
+			organisation: this.organization.value,
+			comment: this.comments.value
 		}
 		if (contact.name.length === 0 ) { alert("Name is required to save a contact"); return; }
 		this.props.addContact(contact);
-		this.contactForm.reset();
 		if (this.props.isMobile ) {
 			this.props.setContactAddDisplay(false);
 			this.props.setContactBrowserDisplay(true);
@@ -57,7 +57,7 @@ class ContactAdd extends React.Component{
 
 	render(){
 		return(
-			<div style={ this.props.display ? styles.show : styles.hide }>
+			<div style={ styles.padding }>
 				<h5>Add Contact</h5>
 
 				<form ref={ (input) => this.contactForm = input } onSubmit={ (e) => this.createContact(e) } >
@@ -76,6 +76,7 @@ class ContactAdd extends React.Component{
 								className="u-full-width" 
 								type="text" 
 								placeholder="Name"
+								required
 							/>
 							<input 
 								ref={ (input) => this.tel = input } 
@@ -112,14 +113,9 @@ class ContactAdd extends React.Component{
 						<button className="u-full-width" style={ styles.saveButton }>
 							<Icon name="floppy-o" /> Save
 						</button>
-						<button
-							className="u-full-width"
-							type="button" 
-							style={ styles.cancelButton }
-							onClick={ (e)=> this.cancel(e) }
-						>
+						<Link to={ '/home' } className="button" style={ styles.cancelButton }>
 							<Icon name="trash-o" /> Cancel
-						</button>
+						</Link>
 					</div>				
 				</form>
 			</div>
